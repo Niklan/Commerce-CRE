@@ -1,0 +1,5 @@
+name = Commerce CRE
+description = Commerce Checkout Rules Event
+core = 7.x
+dependencies[] = commerce
+dependencies[] = commerce_cart

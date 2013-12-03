@@ -1,0 +1,21 @@
+<?php
+/**
+* @file
+* A description of what your module does.
+*/
+
+/**
+ * Implements hook_form_alter().
+ */
+function commerce_cre_form_alter(&$form, &$form_state, $form_id) {
+  // List of our form ID's to trigger.
+  $form_id_list = array(
+    'views_form_commerce_cart_form_default',
+    'commerce_checkout_form_checkout',
+    'commerce_checkout_form_review'
+  );
+
+  if (in_array($form_id, $form_id_list)) {
+    rules_invoke_event('commerce_cre_event_on_checkout', $form_id);
+  }
+}
